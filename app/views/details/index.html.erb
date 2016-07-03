@@ -1,0 +1,17 @@
+<h1>Search Movie</h1>
+
+<%= form_for :search, url: details_path do |l| %>
+<p>
+    <%= l.label :moviename %><br>
+    <%= l.text_field :moviename %>
+</p>
+<p>
+    <%= l.label :year %><br>
+    <%= l.number_field :year %>
+</p>
+<p>
+    <%= l.submit "Search" %>
+</p>
+<% end %>
+
+<%= link_to "Home", welcome_index_path %>

@@ -1,0 +1,87 @@
+<script>
+    var count = false;
+
+    function changeView() {
+        if(count) {
+            document.getElementById('div01').style.display = 'none';
+            document.getElementById('div02').style.display = 'block';
+            count = !count;
+        }
+        else {
+            document.getElementById('div02').style.display = 'none';
+            document.getElementById('div01').style.display = 'block';
+            count = !count;
+        }
+    }
+</script>
+
+
+
+<h1>Comparison New</h1>
+
+<button onclick="changeView()">Click To Change Table View</button><br><br><br>
+
+<% require 'net/http' %>
+<% require 'open-uri' %>
+
+<div id="div01" style="display:none">
+    <table>
+        <tr>
+            <th>TITLE</th>
+            <th>IMDB RATING</th>
+            <th>AWARDS</th>
+            <th>YEAR</th>
+        </tr>
+        <% @arrayAr.each do |a| %>
+        <tr>
+            <td><%= a['Title'] %></td>
+            <td><%= a['imdbRating'] %></td>
+            <td><%= a['Awards'] %></td>
+            <td><%= a['Year'] %></td>
+            <% if a['imdbRating'] %>
+            <% if a['imdbRating'] > @bestRating %>
+            <% @bestRating = a['imdbRating'] %>
+            <% @bestMovie = a['Title'] %>
+            <% end %>
+            <% else %>
+            <% @bestMovie = '' %>
+            <% end %>
+        </tr>
+
+<% end %>
+    </table><br><br><br><br><br><br>
+    
+</div>
+
+<div id="div02">
+
+<table>
+    <tr>
+        <th>Movies - - - :</th>
+        <% @arrayAr.each do |a| %>
+        <th><%= a['Title'] %></th>
+        <% end %>
+    </tr>
+    <tr>
+        <td>IMDB Rating - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['imdbRating'] %></td>
+        <% end %>
+    </tr>
+    <tr>
+        <td>Awards - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['Awards'] %></td>
+        <% end %>
+    </tr>
+</table>
+    
+</div>
+
+<br><br><br><br><br>
+
+<h1>Best Movie(as per Imdb Ratings):</h1>
+<h2><%= @bestMovie %></h2>
+
+<!--<br><br><br><br><br><br><br><br>-->
+<%# @year %>

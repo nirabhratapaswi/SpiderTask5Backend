@@ -1,0 +1,74 @@
+
+
+<% if @json['Response'] == 'True' %>
+
+<h1>Movie:
+    <%= @json['Title'] %></h1>
+
+<!--<image src="<%# @json['Poster'] %>">-->
+
+<h2>Actors</h2>
+<% @json['Actors'].split(',').each do |t| %>
+<p><%= t %></p>
+<% end %>
+
+<h2>Year</h2>
+<%= @json['Year'] %>
+
+<h2>Rated</h2>
+<%= @json['Rated'] %>
+
+<h2>Released</h2>
+<%= @json['Released'] %>
+
+<h2>Runtime</h2>
+<%= @json['Runtime'] %>
+
+<h2>Genre</h2>
+<% @json['Genre'].split(',').each do |t| %>
+<p><%= t %></p>
+<% end %>
+
+<h2>Director</h2>
+<%= @json['Director'] %>
+
+<h2>Plot</h2>
+<%= @json['Plot'] %>
+
+<h2>Writer</h2>
+<%= @json['Writer'] %>
+
+<h2>Language</h2>
+<%= @json['Language'] %>
+
+<h2>Country</h2>
+<%= @json['Country'] %>
+
+<h2>Awards</h2>
+<%= @json['Awards'] %>
+
+<h2>Metascore</h2>
+<%= @json['Metascore'] %>
+
+<h2>IMDB Rating</h2>
+<%= @json['imdbRating'] %>
+
+<h2>IMDB Votes</h2>
+<%= @json['imdbVotes'] %>
+
+<h2>IMDB ID</h2>
+<%= @json['imdbID'] %>
+
+<h2>Type</h2>
+<%= @json['Type'] %>
+
+
+<h2>Response</h2>
+<%= @json['Response'] %>
+
+
+<% else %>
+
+<h1>Wrong Movie Info, leave year of release blank if not sure!!!</h1>
+
+<% end %>

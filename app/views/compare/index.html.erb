@@ -1,0 +1,17 @@
+<h1>Add to Compare</h1>
+
+<%= form_for :search, url: compare_index_path do |l| %>
+<p>
+    <%= l.label :moviename %><br>
+    <%= l.text_field :moviename %>
+</p>
+<p>
+    <%= l.submit "Compare" %>
+</p>
+<% end %>
+
+<p>Use ',' to seperate movies and '-' to mention year of release of movies</p><br>
+<p><b>Example: In Search Box:"Iron Man-2008,Iron Man 2-2010, Inception - 2010"</b></p>
+<p>You may or may not mention the release year(but mentioning tilte is mandatory!!)</p>
+
+<%= link_to "Home", welcome_index_path %>
