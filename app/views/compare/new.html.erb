@@ -29,17 +29,27 @@
         <tr>
             <th>TITLE</th>
             <th>IMDB RATING</th>
+            <th>Year</th>
             <th>AWARDS</th>
-            <th>YEAR</th>
+            <th>Genre</th>
+            <th>Runtime</th>
+            <th>Language</th>
+            <th>Country</th>
+            <th>Metascore</th>
         </tr>
         <% @arrayAr.each do |a| %>
         <tr>
             <td><%= a['Title'] %></td>
             <td><%= a['imdbRating'] %></td>
-            <td><%= a['Awards'] %></td>
             <td><%= a['Year'] %></td>
+            <td><%= a['Awards'] %></td>
+            <td><%= a['Genre'] %></td>
+            <td><%= a['Runtime'] %></td>
+            <td><%= a['Language'] %></td>
+            <td><%= a['Country'] %></td>
+            <td><%= a['Metascore'] %></td>
             <% if a['imdbRating'] %>
-            <% if a['imdbRating'] > @bestRating %>
+            <% if a['imdbRating'] > @bestRating && a['imdbRating'] != 'N/A' %>
             <% @bestRating = a['imdbRating'] %>
             <% @bestMovie = a['Title'] %>
             <% end %>
@@ -69,9 +79,51 @@
         <% end %>
     </tr>
     <tr>
+        <td>Year - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['Year'] %></td>
+        <% end %>
+    </tr>
+    <tr>
         <td>Awards - - - :</td>
         <% @arrayAr.each do |a| %>
         <td><%= a['Awards'] %></td>
+        <% end %>
+    </tr>
+    <tr>
+        <td>Genre - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['Genre'] %></td>
+        <% end %>
+    </tr>
+    <tr>
+        <td>Runtime - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['Runtime'] %></td>
+        <% end %>
+    </tr>
+    <tr>
+        <td>Language - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['Language'] %></td>
+        <% end %>
+    </tr>
+    <tr>
+        <td>Country - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['Country'] %></td>
+        <% end %>
+    </tr>
+    <tr>
+        <td>Metascore - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['Metascore'] %></td>
+        <% end %>
+    </tr>
+    <tr>
+        <td>IMDB Votes - - - :</td>
+        <% @arrayAr.each do |a| %>
+        <td><%= a['imdbVotes'] %></td>
         <% end %>
     </tr>
 </table>
@@ -83,5 +135,4 @@
 <h1>Best Movie(as per Imdb Ratings):</h1>
 <h2><%= @bestMovie %></h2>
 
-<!--<br><br><br><br><br><br><br><br>-->
-<%# @year %>
+<%= link_to "Home", welcome_index_path %>

@@ -5,7 +5,7 @@
 <h1>Movie:
     <%= @json['Title'] %></h1>
 
-<!--<image src="<%# @json['Poster'] %>">-->
+<image src="<%= @json['Poster'] %>">
 
 <h2>Actors</h2>
 <% @json['Actors'].split(',').each do |t| %>
@@ -62,13 +62,10 @@
 <h2>Type</h2>
 <%= @json['Type'] %>
 
-
-<h2>Response</h2>
-<%= @json['Response'] %>
-
-
 <% else %>
 
 <h1>Wrong Movie Info, leave year of release blank if not sure!!!</h1>
 
 <% end %>
+    
+<%= link_to "Home", welcome_index_path %>
